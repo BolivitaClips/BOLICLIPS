@@ -7,7 +7,7 @@
 //    automaticamente cada vez que ejecutas `python scripts/empacar_release.py`.
 // ============================================================================
 
-const DOWNLOAD_URL = "https://github.com/TU_USUARIO/TU_REPOSITORIO/releases/latest/download/BolivitaClips_Windows.zip";
+const DOWNLOAD_URL = "https://github.com/BolivitaClips/BOLICLIPS/releases/latest/download/BolivitaClips_Windows.zip";
 
 window.BOLIVITA_RELEASE = {
   DOWNLOAD_URL,
