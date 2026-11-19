@@ -1,0 +1,160 @@
+:root {
+  --bg-base: #111319;
+  --bg-card: #191C26;
+  --bg-card-hover: #1E2230;
+  --gold-start: #F5A623;
+  --gold-end: #E08E26;
+  --cheese-accent: #FFD166;
+  --amber-border: rgba(140, 74, 25, 0.35);
+  --amber-border-strong: rgba(245, 166, 35, 0.45);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
+  color: #F3F4F6;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 75% 45% at 50% -8%, rgba(245, 166, 35, 0.14), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 85% 22%, rgba(255, 209, 102, 0.06), transparent 65%);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Boton dorado principal */
+.btn-arepa {
+  background: linear-gradient(135deg, #F5A623 0%, #E08E26 100%);
+  color: #111319;
+  font-weight: 700;
+  box-shadow: 0 10px 30px -8px rgba(245, 166, 35, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-arepa:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px -6px rgba(255, 209, 102, 0.65);
+  filter: brightness(1.05);
+}
+
+.btn-arepa:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-arepa:disabled,
+.btn-arepa[aria-disabled="true"] {
+  background: #262A36;
+  color: #8B93A7;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Resplandor calido sutil detras de la arepa en el Hero */
+.arepa-glow-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arepa-glow-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.42) 0%, rgba(255, 209, 102, 0.16) 45%, transparent 72%);
+  filter: blur(18px);
+  z-index: 0;
+  animation: pulseGlow 4.8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.78;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Tarjetas Bento y Descarga */
+.card-surface {
+  background: var(--bg-card);
+  border: 1px solid var(--amber-border);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.card-surface:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--amber-border-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 209, 102, 0.08);
+}
+
+.download-card {
+  background: linear-gradient(180deg, rgba(28, 32, 44, 0.96) 0%, rgba(21, 24, 33, 0.98) 100%);
+  border: 1px solid rgba(245, 166, 35, 0.42);
+  box-shadow:
+    0 24px 60px -24px rgba(0, 0, 0, 0.85),
+    0 0 50px -20px rgba(245, 166, 35, 0.22);
+}
+
+/* Acordeon FAQ */
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.faq-item[data-open="true"] .faq-content {
+  grid-template-rows: 1fr;
+}
+
+.faq-item[data-open="true"] .faq-chevron {
+  transform: rotate(180deg);
+  color: #FFD166;
+}
+
+.faq-chevron {
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+/* Modales legales */
+.modal-backdrop {
+  background: rgba(8, 10, 14, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.modal-panel {
+  background: #171A24;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  box-shadow: 0 28px 80px -20px rgba(0, 0, 0, 0.9);
+}
+
+/* Scrollbar limpia */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111319;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C3142;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #464D64;
+}

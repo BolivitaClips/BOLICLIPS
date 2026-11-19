@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bolivita Clips — Recorta tus propios directos y videos autorizados en segundos</title>
+  <meta
+    name="description"
+    content="Descarga gratis Bolivita Clips para Windows 10/11. Recorta tus propios directos y videos autorizados con Split-Screen 9:16 automático y filtro anti-baneo 100 % local."
+  />
+  <link rel="icon" type="image/png" href="assets/bolivita_clips.png" />
+  <link rel="apple-touch-icon" href="assets/bolivita_clips.png" />
+
+  <!-- Tipografia moderna Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            arepaBg: "#111319",
+            arepaCard: "#191C26",
+            arepaGold: "#F5A623",
+            arepaGoldDeep: "#E08E26",
+            arepaCheese: "#FFD166",
+            arepaAmber: "#8C4A19",
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "system-ui", "-apple-system", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#111319] text-gray-100 antialiased selection:bg-[#F5A623]/30 selection:text-[#FFD166]">
+
+  <!-- ====================================================================== -->
+  <!-- 1. NAVBAR FIJA CON EFECTO CRISTAL TRANSLUCIDO                          -->
+  <!-- ====================================================================== -->
+  <header class="fixed top-0 inset-x-0 z-40 border-b border-[#8C4A19]/30 bg-[#111319]/80 backdrop-blur-xl">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-4" aria-label="Navegación principal">
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none shrink-0">
+        <div class="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-[#191C26] border border-[#F5A623]/30 p-1 shadow-md group-hover:border-[#FFD166]/60 transition-colors">
+          <img
+            src="assets/bolivita_clips.png"
+            alt="Logo de Bolivita Clips"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <span class="text-base sm:text-xl font-extrabold tracking-tight text-white whitespace-nowrap">
+          Bolivita <span class="text-[#FFD166]">Clips</span>
+        </span>
+      </a>
+
+      <!-- Enlaces Desktop -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="#funciones" class="hover:text-[#FFD166] transition-colors">Funciones</a>
+        <a href="#descargar" class="hover:text-[#FFD166] transition-colors">Descargar</a>
+        <a href="#seguridad" class="hover:text-[#FFD166] transition-colors">Seguridad</a>
+        <a href="#legal" class="hover:text-[#FFD166] transition-colors">Legal</a>
+      </div>
+
+      <!-- CTA + Boton Movil -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a
+          href="#descargar"
+          class="btn-arepa inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm whitespace-nowrap shrink-0"
+        >
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span class="hidden sm:inline">Descargar Gratis</span>
+          <span class="sm:hidden">Descargar</span>
+        </a>
+
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-xl bg-[#191C26] border border-[#8C4A19]/40 text-gray-200 hover:text-[#FFD166]"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu Movil -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#8C4A19]/30 bg-[#141720]/95 backdrop-blur-xl px-4 py-4">
+      <div class="flex flex-col gap-3 text-sm font-medium text-gray-200">
+        <a href="#funciones" class="py-2 px-3 rounded-lg hover:bg-[#191C26] hover:text-[#FFD166]">Funciones</a>
+        <a href="#descargar" class="py-2 px-3 rounded-lg hover:bg-[#191C26] hover:text-[#FFD166]">Descargar</a>
+        <a href="#seguridad" class="py-2 px-3 rounded-lg hover:bg-[#191C26] hover:text-[#FFD166]">Seguridad</a>
+        <a href="#legal" class="py-2 px-3 rounded-lg hover:bg-[#191C26] hover:text-[#FFD166]">Legal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio" class="pt-24 sm:pt-28">
+
+    <!-- ==================================================================== -->
+    <!-- 2. HERO PRINCIPAL + MOCKUP ESTILIZADO                                -->
+    <!-- ==================================================================== -->
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20 sm:pb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Columna Izquierda: Identidad + Copy + CTAs -->
+        <div class="lg:col-span-6 text-center lg:text-left">
+          <!-- Logo Arepa Protagonista con resplandor calido -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6">
+            <div class="arepa-glow-wrap">
+              <div class="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#191C26]/90 border border-[#F5A623]/40 p-2.5 shadow-2xl">
+                <img
+                  src="assets/bolivita_clips.png"
+                  alt="Arepa oficial de Bolivita Clips"
+                  class="w-full h-full object-contain drop-shadow-[0_6px_14px_rgba(245,166,35,0.35)]"
+                />
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#191C26] border border-[#F5A623]/35 text-xs sm:text-sm font-semibold text-[#FFD166] shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse"></span>
+              <span>100 % Gratis • Procesamiento Local • Windows 10/11</span>
+            </div>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Recorta tus propios directos y videos autorizados
+            <span class="bg-gradient-to-r from-[#FFD166] via-[#F5A623] to-[#E08E26] bg-clip-text text-transparent">
+              en segundos
+            </span>
+          </h1>
+
+          <p class="mt-5 text-base sm:text-lg text-gray-300/90 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Convierte tus grabaciones y streams propios en clips verticales listos para publicar:
+            <strong class="text-white font-semibold">Split-Screen 9:16</strong> con detección automática de cámara,
+            marca de agua y <strong class="text-white font-semibold">filtro anti-baneo local</strong> ejecutado al 100 % en tu PC.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <a
+              href="#descargar"
+              class="btn-arepa w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Ir a la descarga gratuita</span>
+            </a>
+
+            <a
+              href="#funciones"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-gray-200 bg-[#191C26] border border-[#8C4A19]/40 hover:border-[#F5A623]/60 hover:text-[#FFD166] transition-colors"
+            >
+              <span>Ver funciones</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-400">
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#F5A623]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12" /></svg>
+              Sin suscripciones ni cuentas
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#F5A623]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12" /></svg>
+              Compatible con CPU / AMD
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#F5A623]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12" /></svg>
+              Cero subida a la nube
+            </span>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Mockup Visual Estilizado de Bolivita Clips -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-2xl bg-[#161923] border border-[#F5A623]/30 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.9)] overflow-hidden">
+            <!-- Barra superior de ventana -->
+            <div class="flex items-center justify-between px-4 py-3 bg-[#12151E] border-b border-white/5">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/bolivita_clips.png" alt="" class="w-5 h-5 object-contain" aria-hidden="true" />
+                <span class="text-xs font-bold text-gray-200 tracking-wide">Bolivita Clips — Editor Local</span>
+              </div>
+              <div class="flex items-center gap-1.5" aria-hidden="true">
+                <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F5A623]/70"></span>
+              </div>
+            </div>
+
+            <!-- Cuerpo del mockup -->
+            <div class="p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+              <!-- Panel de ajustes -->
+              <div class="sm:col-span-6 space-y-3">
+                <div class="p-3 rounded-xl bg-[#1D212E] border border-[#8C4A19]/30">
+                  <div class="flex items-center justify-between text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-2">
+                    <span>Formato de Salida</span>
+                    <span class="text-[#FFD166]">9:16 Vertical</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-1.5 text-xs">
+                    <div class="px-2.5 py-1.5 rounded-lg bg-[#F5A623]/20 border border-[#F5A623]/60 text-[#FFD166] font-semibold text-center">
+                      Split-Screen
+                    </div>
+                    <div class="px-2.5 py-1.5 rounded-lg bg-[#141720] border border-white/5 text-gray-400 text-center">
+                      Horizontal
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-[#1D212E] border border-[#8C4A19]/30 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-gray-400">Calidad</span>
+                    <span class="px-2 py-0.5 rounded bg-[#141720] text-white font-semibold">1080p HD</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-gray-400">Duración del clip</span>
+                    <span class="px-2 py-0.5 rounded bg-[#141720] text-white font-semibold">30 seg</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-gray-400">Marca de agua</span>
+                    <span class="text-[#FFD166] font-semibold">@TuCanal</span>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs font-semibold text-emerald-300">Filtro Anti-Baneo Local</span>
+                  </div>
+                  <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200">Activo</span>
+                </div>
+              </div>
+
+              <!-- Vista previa Split-Screen 9:16 -->
+              <div class="sm:col-span-6 flex justify-center">
+                <div class="w-full max-w-[215px] aspect-[9/16] rounded-2xl bg-[#0D0F15] border-2 border-[#F5A623]/45 p-1.5 shadow-xl flex flex-col overflow-hidden relative">
+                  <!-- Mitad superior: Camara detectada -->
+                  <div class="h-[42%] rounded-t-xl bg-gradient-to-br from-[#2A2438] via-[#1E2232] to-[#171A26] relative overflow-hidden flex flex-col items-center justify-center border-b border-[#F5A623]/40">
+                    <div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 text-[10px] font-semibold text-[#FFD166] border border-[#F5A623]/30">
+                      CAM AUTO
+                    </div>
+                    <!-- Silueta estilizada de creador -->
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-b from-[#FFD166]/35 to-[#F5A623]/20 border border-[#FFD166]/45 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-[#FFD166]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                    <span class="mt-1.5 text-[10px] text-gray-300 font-medium">Tu cámara arriba</span>
+                  </div>
+
+                  <!-- Mitad inferior: Gameplay / Contenido -->
+                  <div class="flex-1 rounded-b-xl bg-gradient-to-tr from-[#131A2A] via-[#1A2538] to-[#262030] relative overflow-hidden flex flex-col items-center justify-center p-3">
+                    <div class="w-full h-16 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center gap-2">
+                      <span class="w-2 h-6 rounded-full bg-[#F5A623]/80"></span>
+                      <span class="w-2 h-10 rounded-full bg-[#FFD166]"></span>
+                      <span class="w-2 h-5 rounded-full bg-[#E08E26]/80"></span>
+                      <span class="w-2 h-8 rounded-full bg-[#F5A623]"></span>
+                      <span class="w-2 h-4 rounded-full bg-[#FFD166]/70"></span>
+                    </div>
+                    <span class="mt-2 text-[10px] text-gray-400">Contenido / Directo propio</span>
+
+                    <!-- Marca de agua -->
+                    <div class="absolute bottom-2.5 inset-x-0 flex justify-center">
+                      <span class="px-2.5 py-0.5 rounded-full bg-black/65 border border-[#FFD166]/35 text-[10px] font-bold tracking-wide text-[#FFD166]">
+                        @TuCanal • Bolivita Clips
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 3. BENTO GRID DE FUNCIONES                                           -->
+    <!-- ==================================================================== -->
+    <section id="funciones" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-22 border-t border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#F5A623]">Diseñado para creadores</span>
+        <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Todo lo que necesitas para editar tus clips sin complicaciones
+        </h2>
+        <p class="mt-3 text-gray-400 text-sm sm:text-base">
+          Herramientas rápidas, limpias y ejecutadas directamente en tu computadora Windows.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        <!-- Card 1 -->
+        <article class="card-surface rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5A623]/15 border border-[#F5A623]/35 flex items-center justify-center text-[#FFD166] mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="2" width="12" height="20" rx="2" />
+                <line x1="6" y1="10" x2="18" y2="10" />
+                <circle cx="12" cy="6" r="1.5" />
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">Split-Screen Automático (9:16)</h3>
+            <p class="mt-2.5 text-sm sm:text-base text-gray-300/90 leading-relaxed">
+              Detecta tu cámara automáticamente y la coloca en la parte superior del encuadre vertical, manteniendo tu contenido principal nítido debajo.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-[#FFD166]">
+            <span>Ideal para Shorts, Reels y TikTok de tu propio canal</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card-surface rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5A623]/15 border border-[#F5A623]/35 flex items-center justify-center text-[#FFD166] mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">Filtro Anti-Baneo Local</h3>
+            <p class="mt-2.5 text-sm sm:text-base text-gray-300/90 leading-relaxed">
+              Analiza y difumina zonas explícitas o sensibles directamente en tu propia PC usando visión por computadora local, sin enviar un solo fotograma a la nube.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-[#FFD166]">
+            <span>Protección preventiva 100 % offline</span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card-surface rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5A623]/15 border border-[#F5A623]/35 flex items-center justify-center text-[#FFD166] mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" y1="21" x2="4" y2="14" />
+                <line x1="4" y1="10" x2="4" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12" y2="3" />
+                <line x1="20" y1="21" x2="20" y2="16" />
+                <line x1="20" y1="12" x2="20" y2="3" />
+                <line x1="1" y1="14" x2="7" y2="14" />
+                <line x1="9" y1="8" x2="15" y2="8" />
+                <line x1="17" y1="16" x2="23" y2="16" />
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">Control Total de Exportación</h3>
+            <p class="mt-2.5 text-sm sm:text-base text-gray-300/90 leading-relaxed">
+              Elige la calidad exacta (<code class="text-[#FFD166]">480p</code> a <code class="text-[#FFD166]">1080p</code>),
+              duración (<code class="text-[#FFD166]">20s</code> a <code class="text-[#FFD166]">60s</code>),
+              formato vertical u horizontal y agrega tu propia marca de agua personalizada.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-[#FFD166]">
+            <span>Ajustes pensados para render rápido en CPU estándar</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card-surface rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5A623]/15 border border-[#F5A623]/35 flex items-center justify-center text-[#FFD166] mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">100 % Privado y Local</h3>
+            <p class="mt-2.5 text-sm sm:text-base text-gray-300/90 leading-relaxed">
+              Sin suscripciones mensuales, sin colas de espera y sin servidores externos. Tus videos, proyectos y preferencias permanecen siempre en tu computadora.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-[#FFD166]">
+            <span>Cero telemetría • Cero cookies de rastreo</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 4. TARJETA PRINCIPAL DE DESCARGA (CANDADO LEGAL + SHA-256)           -->
+    <!-- ==================================================================== -->
+    <section id="descargar" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-22 border-t border-white/5">
+      <div class="download-card rounded-3xl p-6 sm:p-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-[#111319] border border-[#F5A623]/40 p-2 shrink-0">
+              <img src="assets/bolivita_clips.png" alt="Bolivita Clips" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Descargar Bolivita Clips
+              </h2>
+              <p class="text-sm text-gray-300 mt-0.5">
+                Paquete limpio para Windows 10/11 (64 bits) •
+                <span id="release-version" class="text-[#FFD166] font-semibold">v1.0.0</span>
+                <span class="text-gray-500 mx-1">•</span>
+                <span id="release-size" class="text-gray-300">0.00 MB</span>
+              </p>
+            </div>
+          </div>
+
+          <span class="inline-flex items-center self-start sm:self-center gap-1.5 px-3 py-1 rounded-full bg-[#F5A623]/15 border border-[#F5A623]/35 text-xs font-bold text-[#FFD166]">
+            GRATIS • LOCAL
+          </span>
+        </div>
+
+        <!-- Candado Legal Obligatorio -->
+        <div class="mt-6 p-4 sm:p-5 rounded-2xl bg-[#111319]/85 border border-[#8C4A19]/45">
+          <label for="legal-consent-checkbox" class="flex items-start gap-3.5 cursor-pointer select-none">
+            <input
+              id="legal-consent-checkbox"
+              type="checkbox"
+              class="mt-1 w-5 h-5 rounded border-gray-500 bg-[#191C26] text-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:ring-offset-0 shrink-0 cursor-pointer accent-[#F5A623]"
+            />
+            <span class="text-sm sm:text-[15px] text-gray-200 leading-relaxed">
+              Confirmo que usaré Bolivita Clips únicamente con contenido propio o autorizado por el titular de derechos, y acepto los
+              <button type="button" data-open-modal="terminos" class="text-[#FFD166] underline underline-offset-2 hover:text-white font-semibold">Términos de Uso</button>
+              y la
+              <button type="button" data-open-modal="privacidad" class="text-[#FFD166] underline underline-offset-2 hover:text-white font-semibold">Política de Privacidad</button>.
+            </span>
+          </label>
+        </div>
+
+        <!-- Boton Principal de Descarga -->
+        <div class="mt-6">
+          <button
+            id="download-btn"
+            type="button"
+            disabled
+            aria-disabled="true"
+            class="btn-arepa w-full py-4 px-6 rounded-2xl text-base sm:text-lg flex items-center justify-center gap-3"
+          >
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Descargar Bolivita Clips para Windows (.zip)</span>
+          </button>
+
+          <p id="download-lock-notice" class="mt-3 text-center text-xs sm:text-sm font-medium text-amber-300/90">
+            Marca la casilla legal superior para desbloquear la descarga.
+          </p>
+
+          <div
+            id="download-feedback"
+            class="hidden mt-3 p-3.5 rounded-xl bg-[#111319] border border-[#F5A623]/40 text-xs sm:text-sm text-gray-200 text-center"
+            role="status"
+          ></div>
+        </div>
+
+        <!-- Verificacion SHA-256 + Seguridad SmartScreen -->
+        <div id="seguridad" class="mt-8 pt-6 border-t border-white/10 space-y-4">
+          <div class="p-4 rounded-2xl bg-[#111319] border border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-300">
+                <svg class="w-4 h-4 text-[#FFD166]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Verificación de integridad (SHA-256)</span>
+              </div>
+
+              <button
+                id="copy-sha256-btn"
+                type="button"
+                class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#191C26] border border-[#F5A623]/35 text-xs font-semibold text-[#FFD166] hover:bg-[#222634] transition-colors self-start sm:self-auto"
+              >
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <span id="copy-sha256-label">Copiar SHA-256</span>
+              </button>
+            </div>
+
+            <code
+              id="sha256-value"
+              class="block w-full text-xs sm:text-[13px] font-mono text-gray-200 bg-black/40 rounded-lg px-3 py-2.5 break-all select-all border border-white/5"
+            >B6C97210B08617521F78CE5D2FADCBE036962E014F5E3CE86C2E3515A357408E</code>
+
+            <p class="mt-2 text-[11px] sm:text-xs text-gray-400">
+              Actualizado: <span id="release-date" class="text-gray-300">2026-11-19</span> •
+              Puedes verificarlo en PowerShell con <code class="text-gray-300">Get-FileHash .\BolivitaClips_Windows.zip -Algorithm SHA256</code>.
+            </p>
+          </div>
+
+          <!-- Nota transparente Windows SmartScreen -->
+          <div class="p-4 rounded-2xl bg-[#191C26]/70 border border-[#8C4A19]/35 flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#F5A623] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <div class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <strong class="text-white">Nota transparente sobre Windows SmartScreen:</strong>
+              Bolivita Clips es software independiente y 100 % gratuito sin certificado comercial de firma digital (los certificados EV tienen alto costo anual). Por ello, Windows puede mostrar un aviso preventivo la primera vez que abras el lanzador. Siempre puedes comprobar el <strong>SHA-256</strong> de arriba antes de ejecutarlo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 5. PREGUNTAS FRECUENTES (ACORDEON INTERACTIVO)                       -->
+    <!-- ==================================================================== -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 border-t border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#F5A623]">Preguntas frecuentes</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Respuestas claras antes de descargar
+        </h2>
+      </div>
+
+      <div class="space-y-3.5">
+        <!-- FAQ 1 -->
+        <div class="faq-item rounded-2xl bg-[#191C26] border border-[#8C4A19]/35 overflow-hidden" data-open="true">
+          <button
+            type="button"
+            class="faq-trigger w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left font-bold text-white hover:text-[#FFD166] transition-colors"
+            aria-expanded="true"
+          >
+            <span class="text-sm sm:text-base">¿Bolivita Clips es realmente gratis?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content">
+            <div class="overflow-hidden">
+              <p class="px-5 sm:px-6 pb-5 text-sm sm:text-[15px] text-gray-300 leading-relaxed">
+                Sí, es 100 % gratuito. No tiene planes pagos, suscripciones ocultas ni límites artificiales por cantidad de clips. Funciona con herramientas open-source directamente en tu equipo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item rounded-2xl bg-[#191C26] border border-[#8C4A19]/35 overflow-hidden" data-open="false">
+          <button
+            type="button"
+            class="faq-trigger w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left font-bold text-white hover:text-[#FFD166] transition-colors"
+            aria-expanded="false"
+          >
+            <span class="text-sm sm:text-base">¿Cómo funciona el aviso preventivo de Windows SmartScreen?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content">
+            <div class="overflow-hidden">
+              <p class="px-5 sm:px-6 pb-5 text-sm sm:text-[15px] text-gray-300 leading-relaxed">
+                Windows muestra la pantalla azul de SmartScreen en programas nuevos o independientes que no pagan un certificado comercial de firma digital. Si descargaste el archivo desde esta página oficial y verificaste el hash SHA-256, puedes pulsar <em>"Más información"</em> → <em>"Ejecutar de todas formas"</em>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item rounded-2xl bg-[#191C26] border border-[#8C4A19]/35 overflow-hidden" data-open="false">
+          <button
+            type="button"
+            class="faq-trigger w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left font-bold text-white hover:text-[#FFD166] transition-colors"
+            aria-expanded="false"
+          >
+            <span class="text-sm sm:text-base">¿Mis videos o datos se suben a algún servidor?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content">
+            <div class="overflow-hidden">
+              <p class="px-5 sm:px-6 pb-5 text-sm sm:text-[15px] text-gray-300 leading-relaxed">
+                No. Todo el análisis, recorte, Split-Screen y filtro anti-baneo se ejecuta de manera 100 % local en tu propia PC. No existen servidores del autor que reciban tus videos, cuentas ni telemetría.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item rounded-2xl bg-[#191C26] border border-[#8C4A19]/35 overflow-hidden" data-open="false">
+          <button
+            type="button"
+            class="faq-trigger w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left font-bold text-white hover:text-[#FFD166] transition-colors"
+            aria-expanded="false"
+          >
+            <span class="text-sm sm:text-base">¿Cuáles son los requisitos mínimos?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content">
+            <div class="overflow-hidden">
+              <p class="px-5 sm:px-6 pb-5 text-sm sm:text-[15px] text-gray-300 leading-relaxed">
+                Windows 10 u 11 (64 bits), Python 3.10 o superior instalado (con la opción <em>Add python.exe to PATH</em>), 4 GB de RAM (8 GB recomendados) y procesador estándar. No requiere tarjeta gráfica NVIDIA; funciona perfectamente en CPU y equipos con gráficos AMD o Intel. En el primer inicio descarga FFmpeg y yt-dlp desde sus fuentes oficiales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- 6. FOOTER + DESCARGO DE NO AFILIACION + ACCESO A 5 MODALES LEGALES     -->
+  <!-- ====================================================================== -->
+  <footer id="legal" class="mt-12 border-t border-[#8C4A19]/35 bg-[#0D0F14]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-white/10">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-[#191C26] border border-[#F5A623]/30 p-1.5 shrink-0">
+            <img src="assets/bolivita_clips.png" alt="Logo Bolivita Clips" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <p class="text-base font-extrabold text-white">Bolivita <span class="text-[#FFD166]">Clips</span></p>
+            <p class="text-xs text-gray-400">Software independiente y gratuito de edición local para Windows.</p>
+          </div>
+        </div>
+
+        <!-- Enlaces a los 5 modales legales -->
+        <div class="flex flex-wrap gap-x-5 gap-y-2.5 text-xs sm:text-sm font-medium text-gray-300">
+          <button type="button" data-open-modal="terminos" class="hover:text-[#FFD166] transition-colors">
+            Términos y Condiciones
+          </button>
+          <button type="button" data-open-modal="privacidad" class="hover:text-[#FFD166] transition-colors">
+            Política de Privacidad
+          </button>
+          <button type="button" data-open-modal="no-afiliacion" class="hover:text-[#FFD166] transition-colors">
+            No Afiliación
+          </button>
+          <button type="button" data-open-modal="dmca" class="hover:text-[#FFD166] transition-colors">
+            DMCA y Contacto
+          </button>
+          <button type="button" data-open-modal="licencias" class="hover:text-[#FFD166] transition-colors">
+            Licencias Open-Source
+          </button>
+        </div>
+      </div>
+
+      <!-- Descargo de No Afiliacion visible en el footer -->
+      <div class="pt-6 space-y-2 text-xs text-gray-400 leading-relaxed">
+        <p>
+          <strong class="text-gray-300">Descargo de No Afiliación:</strong>
+          Bolivita Clips es un proyecto independiente y no tiene relación, asociación, patrocinio ni respaldo de
+          <strong>YouTube (Google LLC)</strong>, <strong>Twitch Interactive</strong>, <strong>TikTok (ByteDance)</strong>
+          ni <strong>Instagram (Meta Platforms)</strong>. Todas las marcas mencionadas pertenecen a sus respectivos propietarios.
+        </p>
+        <p class="text-gray-500">
+          Uso exclusivo para contenido propio o autorizado. Software distribuido "TAL CUAL" (AS IS), sin garantías.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================== -->
+  <!-- 7. MODALES LEGALES COMPLETOS (5 MODALES)                               -->
+  <!-- ====================================================================== -->
+
+  <!-- Modal 1: Terminos y Condiciones -->
+  <div id="modal-terminos" class="legal-modal modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="title-terminos" aria-hidden="true">
+    <div class="modal-panel w-full max-w-2xl max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#12151D]">
+        <h3 id="title-terminos" class="text-lg font-extrabold text-white">Términos y Condiciones de Uso</h3>
+        <button type="button" data-close-modal class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-300 leading-relaxed">
+        <p>
+          Al descargar, instalar o utilizar <strong>Bolivita Clips</strong>, aceptas íntegramente estos Términos y Condiciones.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">1. Uso exclusivo para contenido propio o autorizado</h4>
+        <p>
+          Bolivita Clips está destinado exclusivamente al procesamiento y recorte de directos, grabaciones y videos que sean de tu propiedad o respecto de los cuales cuentes con autorización expresa y verificable del titular de los derechos de autor.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">2. Prohibición de infracción</h4>
+        <p>
+          Queda estrictamente prohibido utilizar este software para infringir derechos de autor, derechos de imagen, propiedad intelectual, términos de servicio de plataformas de terceros o cualquier normativa legal aplicable. Eres el único responsable del uso que hagas del programa y de los clips generados.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">3. Provisión "TAL CUAL" (AS IS) sin garantías</h4>
+        <p>
+          El software se proporciona <strong>"TAL CUAL" ("AS IS")</strong> y según disponibilidad, sin garantías expresas ni implícitas de ningún tipo, incluidas, entre otras, garantías de comerciabilidad, idoneidad para un propósito particular, disponibilidad continua o ausencia de errores.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">4. Exención total de responsabilidad</h4>
+        <p>
+          En ningún caso el autor o colaboradores de Bolivita Clips serán responsables por daños directos, indirectos, incidentales o consecuentes, incluyendo, sin limitación: bloqueos, restricciones, desmonetizaciones o baneos de cuentas en redes sociales o plataformas de streaming, pérdida de datos, interrupciones o consecuencias derivadas del mal uso del software.
+        </p>
+      </div>
+      <div class="px-6 py-3.5 border-t border-white/10 bg-[#12151D] flex justify-end">
+        <button type="button" data-close-modal class="btn-arepa px-5 py-2 rounded-xl text-sm">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Politica de Privacidad -->
+  <div id="modal-privacidad" class="legal-modal modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="title-privacidad" aria-hidden="true">
+    <div class="modal-panel w-full max-w-2xl max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#12151D]">
+        <h3 id="title-privacidad" class="text-lg font-extrabold text-white">Política de Privacidad</h3>
+        <button type="button" data-close-modal class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-300 leading-relaxed">
+        <h4 class="font-bold text-[#FFD166]">1. Cero cookies de rastreo y cero analíticas invasivas</h4>
+        <p>
+          Esta página web oficial no instala cookies publicitarias ni scripts de rastreo de comportamiento. No vendemos ni compartimos información personal de los visitantes.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">2. Procesamiento 100 % local en tu equipo</h4>
+        <p>
+          La aplicación Bolivita Clips procesa todos tus videos, clips, configuraciones y análisis visuales (Split-Screen y filtro anti-baneo) exclusivamente en tu propia computadora Windows. Ningún video, captura, archivo ni credencial se envía a servidores del autor.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">3. Descargas de componentes externos oficiales</h4>
+        <p>
+          En el primer inicio, el asistente local descarga Python packages, FFmpeg y yt-dlp directamente desde sus repositorios oficiales públicos (PyPI, GitHub / gyan.dev). Esas conexiones se realizan directamente desde tu equipo hacia dichos proveedores sin intermediación nuestra.
+        </p>
+      </div>
+      <div class="px-6 py-3.5 border-t border-white/10 bg-[#12151D] flex justify-end">
+        <button type="button" data-close-modal class="btn-arepa px-5 py-2 rounded-xl text-sm">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Descargo de No Afiliacion -->
+  <div id="modal-no-afiliacion" class="legal-modal modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="title-no-afiliacion" aria-hidden="true">
+    <div class="modal-panel w-full max-w-2xl max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#12151D]">
+        <h3 id="title-no-afiliacion" class="text-lg font-extrabold text-white">Descargo de No Afiliación</h3>
+        <button type="button" data-close-modal class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-300 leading-relaxed">
+        <p>
+          <strong>Bolivita Clips</strong> es un proyecto de software independiente desarrollado para ayudar a creadores a editar sus propios videos y grabaciones autorizadas en local.
+        </p>
+        <p>
+          Bolivita Clips <strong>no está afiliado, asociado, autorizado, patrocinado ni respaldado</strong> de ninguna manera por:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-gray-200">
+          <li><strong>YouTube</strong> (Google LLC)</li>
+          <li><strong>Twitch</strong> (Twitch Interactive, Inc.)</li>
+          <li><strong>TikTok</strong> (ByteDance Ltd.)</li>
+          <li><strong>Instagram</strong> (Meta Platforms, Inc.)</li>
+        </ul>
+        <p>
+          Todos los nombres comerciales, logotipos y marcas registradas mencionadas en esta web o en la documentación pertenecen exclusivamente a sus respectivos titulares y se citan únicamente con fines descriptivos de compatibilidad de formatos.
+        </p>
+      </div>
+      <div class="px-6 py-3.5 border-t border-white/10 bg-[#12151D] flex justify-end">
+        <button type="button" data-close-modal class="btn-arepa px-5 py-2 rounded-xl text-sm">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Politica DMCA y Contacto -->
+  <div id="modal-dmca" class="legal-modal modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="title-dmca" aria-hidden="true">
+    <div class="modal-panel w-full max-w-2xl max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#12151D]">
+        <h3 id="title-dmca" class="text-lg font-extrabold text-white">Política DMCA y Contacto</h3>
+        <button type="button" data-close-modal class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-300 leading-relaxed">
+        <p>
+          Respetamos los derechos de propiedad intelectual de terceros. Esta página web no aloja, distribuye ni transmite videos protegidos por derechos de autor; únicamente ofrece la descarga del software de edición local.
+        </p>
+        <h4 class="font-bold text-[#FFD166]">Procedimiento de notificación y retiro (DMCA)</h4>
+        <p>
+          Si consideras que algún elemento publicado en este sitio web infringe tus derechos de autor, envía una notificación escrita que incluya:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li>Identificación clara de la obra protegida y del material supuestamente infractor (URL exacta).</li>
+          <li>Tus datos de contacto (nombre completo y correo electrónico).</li>
+          <li>Declaración de buena fe indicando que el uso no está autorizado por el titular de derechos.</li>
+          <li>Declaración bajo pena de perjurio de que la información proporcionada es exacta y eres el titular o representante autorizado.</li>
+        </ul>
+        <div class="p-4 rounded-xl bg-[#111319] border border-[#F5A623]/30">
+          <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">Correo de contacto legal / DMCA</p>
+          <p class="font-mono text-sm text-[#FFD166]" data-contact-email>[TU_CORREO_DE_CONTACTO]</p>
+        </div>
+      </div>
+      <div class="px-6 py-3.5 border-t border-white/10 bg-[#12151D] flex justify-end">
+        <button type="button" data-close-modal class="btn-arepa px-5 py-2 rounded-xl text-sm">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Licencias Open-Source -->
+  <div id="modal-licencias" class="legal-modal modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="title-licencias" aria-hidden="true">
+    <div class="modal-panel w-full max-w-2xl max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#12151D]">
+        <h3 id="title-licencias" class="text-lg font-extrabold text-white">Licencias Open-Source</h3>
+        <button type="button" data-close-modal class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-300 leading-relaxed">
+        <p>
+          Bolivita Clips se construye sobre proyectos open-source de la comunidad. El detalle completo también se incluye en <code class="text-[#FFD166]">LICENSES.txt</code> dentro del paquete descargable.
+        </p>
+        <ul class="space-y-2.5">
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">Python</strong> — <span class="text-[#FFD166]">PSF License 2.0</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">FastAPI</strong> (y Starlette / Uvicorn / Pydantic) — <span class="text-[#FFD166]">MIT / BSD-3-Clause</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">yt-dlp</strong> — <span class="text-[#FFD166]">The Unlicense (Dominio Público)</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">FFmpeg / FFprobe</strong> — <span class="text-[#FFD166]">LGPL v2.1+ / GPL v2+/v3+</span>
+            <p class="text-xs text-gray-400 mt-1">Cumplimiento GPL: los binarios de FFmpeg no se redistribuyen en el .zip; se descargan desde sus fuentes oficiales en el primer inicio.</p>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">OpenCV &amp; MediaPipe</strong> — <span class="text-[#FFD166]">Apache License 2.0</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">NudeNet &amp; ONNX Runtime</strong> — <span class="text-[#FFD166]">MIT / AGPLv3 según componente</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#111319] border border-white/5">
+            <strong class="text-white">Tailwind CSS</strong> — <span class="text-[#FFD166]">MIT License</span>
+          </li>
+        </ul>
+        <p class="text-xs text-gray-400">
+          También puedes abrir el archivo de texto completo:
+          <a href="LICENSES.txt" target="_blank" rel="noopener noreferrer" class="text-[#FFD166] underline hover:text-white">Ver LICENSES.txt</a>.
+        </p>
+      </div>
+      <div class="px-6 py-3.5 border-t border-white/10 bg-[#12151D] flex justify-end">
+        <button type="button" data-close-modal class="btn-arepa px-5 py-2 rounded-xl text-sm">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="release-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

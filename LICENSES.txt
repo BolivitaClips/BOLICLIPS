@@ -1,0 +1,47 @@
+===============================================================================
+BOLIVITA CLIPS - LICENCIAS Y ATRIBUCIONES DE SOFTWARE DE CÓDIGO ABIERTO
+===============================================================================
+
+Bolivita Clips utiliza y se apoya en herramientas y librerías de código abierto.
+Cada componente conserva su propia licencia y derechos de autor originales:
+
+1. Python
+   - Licencia: Python Software Foundation License (PSF-2.0)
+   - Sitio oficial: https://www.python.org/
+
+2. FastAPI & Starlette / Uvicorn / Pydantic
+   - Licencia: MIT License (FastAPI, Pydantic) / BSD-3-Clause (Starlette, Uvicorn)
+   - Sitio oficial: https://fastapi.tiangolo.com/
+
+3. yt-dlp
+   - Licencia: The Unlicense (Dominio Público)
+   - Repositorio oficial: https://github.com/yt-dlp/yt-dlp
+   - Nota: Se descarga directamente desde su repositorio oficial en GitHub.
+
+4. FFmpeg / FFprobe
+   - Licencia: GNU Lesser General Public License (LGPL) v2.1+ / GNU General Public License (GPL) v2+ / v3+ según la compilación oficial seleccionada por el usuario.
+   - Sitio oficial: https://ffmpeg.org/
+   - Nota de cumplimiento GPL: Bolivita Clips NO redistribuye binarios compilados de FFmpeg dentro del paquete .zip. En el primer inicio, el asistente local descarga los binarios directamente desde las compilaciones oficiales públicas para Windows.
+
+5. OpenCV (opencv-python-headless) y MediaPipe (visión por computadora)
+   - Licencia: Apache License 2.0
+   - Sitios oficiales: https://opencv.org/ | https://developers.google.com/mediapipe
+
+6. NudeNet & ONNX Runtime
+   - Licencia: MIT License (ONNX Runtime) / GNU AGPLv3 / MIT según versión del modelo/paquete NudeNet
+   - Repositorio oficial: https://github.com/notAI-tech/NudeNet
+
+7. Pillow (PIL Fork), NumPy, SciPy, PyDub, Requests, pywebview
+   - Licencias: HPND / BSD-3-Clause / MIT / Apache-2.0
+
+8. Tailwind CSS (utilizado en la página web oficial de descarga)
+   - Licencia: MIT License
+   - Sitio oficial: https://tailwindcss.com/
+
+-------------------------------------------------------------------------------
+DESCARGO LEGAL:
+Bolivita Clips se entrega "TAL CUAL" ("AS IS"), sin garantías de ningún tipo.
+Es un proyecto independiente sin afiliación, patrocinio ni respaldo de
+YouTube (Google LLC), Twitch Interactive, TikTok (ByteDance) ni Instagram
+(Meta Platforms).
+===============================================================================
